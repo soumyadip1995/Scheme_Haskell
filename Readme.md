@@ -1,5 +1,5 @@
 ### Scheme in Haskell
-#### Why Haskell matters
+#### Why Haskell 
 
 Languages such as C/C++ are imperative in the sense, they provide a sequence of actions. Functional programming languages such as haskell evaluate expressions instead of evaluating sequential instructions. Simply put, haskell can reach a stage of functional abstraction(In functional abstraction, details of the algorithms to accomplish the function are not visible to the consumer of the function. The consumer of the function need to only know the correct calling convention and have trust in the accuracy of the functional results) that imperative languages cannot without adding more keywords and also not being able to get rid of sequencing.
 
