@@ -43,6 +43,9 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 Improving our scheme, a little bit, so that we can use it as a basic calculator.
 
 #### Tests runs
+
 - Initial Evaluator - ./ghc eval.hs && eval "(1 2 2)"
-- ./ghc eval.hs && eval "'(1 3 (\"this\" \"one\"))"
+- ./ghc eval.hs && eval "'(1 3 (\ "this \ "  \ " one \ "))"
 - Primitives:- ./ghc eval.hs && eval "'atom"
+- Adding basic Primitives./ghc eval.hs && eval "(+ 2 (-4 1))"
+- Adding basic primitives./ghc eval.hs && eval "(- (+ 4 6 3) 3 5 2)"
