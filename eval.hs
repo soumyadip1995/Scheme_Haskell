@@ -1,8 +1,8 @@
 import Text.ParserCombinators.Parsec hiding (spaces)
 import System.Environment
 import Control.Monad
+import Control.Monad.Except
 instance Show LispVal where show = showVal
-
 
 data LispVal = Atom String
              | List [LispVal]
@@ -103,6 +103,8 @@ primitives = [("+", numericBinop (+)),
               ("bool?", unaryOp boolp) ,
               ("list?" , unaryOp listp)]
 
+
+
 unaryOp :: (LispVal -> LispVal) -> [LispVal] -> LispVal
 unaryOp f [v] = f v
 
@@ -118,7 +120,6 @@ boolp   _          = Bool False
 listp   (List _)   = Bool True
 listp   (DottedList _ _) = Bool False
 listp   _          = Bool False
-
 
 numericBinop :: (Integer -> Integer -> Integer) -> [LispVal] -> LispVal
 numericBinop op params = Number $ foldl1 op $ map unpackNum params
