@@ -11,7 +11,7 @@
 #### Running test cases:-
 
 - ./ghc main.hs && main " $"
-- ./ghc main.hs && main "\"this is shreya\"
+- ./ghc main.hs && main " \ "this is shreya \ "
 - ./ghc main.hs && main 25
 - float value = 23.3334
 
