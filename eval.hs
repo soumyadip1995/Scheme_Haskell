@@ -96,7 +96,28 @@ primitives = [("+", numericBinop (+)),
               ("/", numericBinop div),
               ("mod", numericBinop mod),
               ("quotient", numericBinop quot),
-              ("remainder", numericBinop rem)]
+              ("remainder", numericBinop rem),
+              ("symbol?" , unaryOp symbolp) ,
+              ("string?" , unaryOp stringp) ,
+              ("number?" , unaryOp numberp) ,
+              ("bool?", unaryOp boolp) ,
+              ("list?" , unaryOp listp)]
+
+unaryOp :: (LispVal -> LispVal) -> [LispVal] -> LispVal
+unaryOp f [v] = f v
+
+symbolp, numberp, stringp, boolp, listp :: LispVal -> LispVal
+symbolp (Atom _)   = Bool True
+symbolp _          = Bool False
+numberp (Number _) = Bool True
+numberp _          = Bool False
+stringp (String _) = Bool True
+stringp _          = Bool False
+boolp   (Bool _)   = Bool True
+boolp   _          = Bool False
+listp   (List _)   = Bool True
+listp   (DottedList _ _) = Bool False
+listp   _          = Bool False
 
 
 numericBinop :: (Integer -> Integer -> Integer) -> [LispVal] -> LispVal
