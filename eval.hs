@@ -11,6 +11,8 @@ data LispVal = Atom String
              | String String
              | Bool Bool
 
+-- Parser
+
 parseString :: Parser LispVal
 parseString = do
                 char '"'
@@ -62,6 +64,8 @@ symbol = oneOf "!#$%&|*+-/:<=>?@^_~"
 spaces :: Parser ()
 spaces = skipMany1 space
 
+-- print out a string representation of the various possible LispVals:
+
 showVal :: LispVal -> String
 showVal (String contents) = "\"" ++ contents ++ "\""
 showVal (Atom name) = name
@@ -75,19 +79,8 @@ showVal (DottedList head tail) = "(" ++ unwordsList head ++ " . " ++ showVal tai
 unwordsList :: [LispVal] -> String
 unwordsList = unwords . map showVal
 
-eval :: LispVal -> LispVal
-eval val@(String _) = val
-eval val@(Number _) = val
-eval val@(Bool _) = val
-eval (List [Atom "quote", val]) = val
 
- -- Remember that all clauses of a function definition must be placed together 
- -- and are evaluated in textual order.
-
-eval (List (Atom func : args)) = apply func $ map eval args
-
-apply :: String -> [LispVal] -> LispVal
-apply func args = maybe (Bool False) ($ args) $ lookup func primitives
+-- Evaluator
 
 primitives :: [(String, [LispVal] -> LispVal)]
 primitives = [("+", numericBinop (+)),
@@ -120,6 +113,18 @@ boolp   _          = Bool False
 listp   (List _)   = Bool True
 listp   (DottedList _ _) = Bool False
 listp   _          = Bool False
+
+
+eval :: LispVal -> LispVal
+eval val@(String _) = val
+eval val@(Number _) = val
+eval val@(Bool _) = val
+eval (List [Atom "quote", val]) = val
+
+eval (List (Atom func : args)) = apply func $ map eval args
+
+apply :: String -> [LispVal] -> LispVal
+apply func args = maybe (Bool False) ($ args) $ lookup func primitives
 
 numericBinop :: (Integer -> Integer -> Integer) -> [LispVal] -> LispVal
 numericBinop op params = Number $ foldl1 op $ map unpackNum params
