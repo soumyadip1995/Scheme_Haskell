@@ -51,3 +51,5 @@ FIXED:- Support added for primitives to perform the various [type-testing](http:
 - Adding basic Primitives./ghc eval.hs && eval "(+ 2 (-4 1))"
 - Adding basic primitives./ghc eval.hs && eval "(- (+ 4 6 3) 3 5 2)"
 - BUG FIX:- Error #f. Use Import Control.Monad.Except
+
+#### Describe the test cases in all cleaned up
