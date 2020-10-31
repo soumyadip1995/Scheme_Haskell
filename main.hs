@@ -10,7 +10,7 @@ data LispVal = Atom String
              | String String
              | Bool Bool
              | Float Double
-             
+
 parseString :: Parser LispVal
 parseString = do
                 char '"'
@@ -46,12 +46,38 @@ parseBool = do
     char '#'
     (char 't' >> return (Bool True)) <|> (char 'f' >> return (Bool False))
 
+
+parseQuoted :: Parser LispVal
+parseQuoted = do
+    char '\''
+    x <- parseExpr
+    return $ List [Atom "quote", x]
+
+parseDottedList :: Parser LispVal
+parseDottedList = do
+
+
+  head <- endBy parseExpr spaces
+  tail <- char '.' >> spaces >> parseExpr
+  return $ DottedList head tail
+
+parseList :: Parser LispVal
+parseList = liftM List $ sepBy parseExpr spaces
+
+
 parseExpr :: Parser LispVal
 parseExpr = parseAtom
         <|> parseString
         <|> parseNumber
         <|> parseBool
         <|> parseFloat
+        <|> do
+          char '('
+          x <- try parseList <|> parseDottedList
+          char ')'
+          return x
+
+
 parseNumber :: Parser LispVal
 parseNumber = parseDecimal1 <|> parseDecimal2 <|> parseHex <|> parseOct <|> parseBin
 
