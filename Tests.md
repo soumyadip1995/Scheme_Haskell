@@ -10,9 +10,9 @@
 
 #### Running test cases:-
 
-- ./ghc main.hs && main " $"
-- ./ghc main.hs && main "\"this is shreya\"
-- ./ghc main.hs && main 25
+- Whitespace ./ghc main.hs && main " $"
+- Return Value ./ghc main.hs && main " \ "this is shreya \ "
+- Return Value ./ghc main.hs && main 25
 - float value = 23.3334
 
 #### Recursive parser test cases:-
