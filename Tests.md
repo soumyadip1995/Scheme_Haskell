@@ -34,7 +34,15 @@ Te 3:- Add a Float constructor to LispVal.Use readFloat
 
 ### Evaluator
 
-#### Tests run
+#### Primitives
 
-- ./ghc eval.hs && eval "(1 2 2)"
+In Lisp, the data types for both code and data are the same, so our evaluator will return a LispVal. Evaluating numbers, strings, booleans and quoted lists.
+
+#### Adding basic primitives
+
+Improving our scheme, a little bit, so that we can use it as a basic calculator.
+
+#### Tests runs
+- Initial Evaluator - ./ghc eval.hs && eval "(1 2 2)"
 - ./ghc eval.hs && eval "'(1 3 (\"this\" \"one\"))"
+- Primitives:- ./ghc eval.hs && eval "'atom"
