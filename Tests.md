@@ -17,8 +17,9 @@
 
 #### Recursive parser test cases:-
 
-./ghc main.hs && main "(a test)"
-./ghc main.hs && main "(a (nested)test)"
+- ./ghc main.hs && main "(a test)"
+- ./ghc main.hs && main "(a (nested)test)"
+- ./ghc main.hs && main "((a (dotted . list) test)"
 
 Te 1:- 
 -- Rewrite parseNumber, without liftM, using
