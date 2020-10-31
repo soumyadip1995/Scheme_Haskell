@@ -1,17 +1,24 @@
 ### Parsing
-#### FIXED ::
+#### FIXED :heavy_check_mark:
 - Whitespace support
 - ParseNumber without LiftM
 - ParseNumber changed.
 - Support added for Floating point
+- Support added for recursive parsing
 
 #### Return Values
 
-Run:-
+#### Running test cases:-
 
-./ghc main.hs && main "\"this is shreya\"
-./ghc main.hs && main 25
-float value = 23.3334
+- ./ghc main.hs && main " $"
+- ./ghc main.hs && main "\"this is shreya\"
+- ./ghc main.hs && main 25
+- float value = 23.3334
+
+#### Recursive parser test cases:-
+
+./ghc main.hs && main "(a test)"
+./ghc main.hs && main "(a (nested)test)"
 
 Te 1:- 
 -- Rewrite parseNumber, without liftM, using
