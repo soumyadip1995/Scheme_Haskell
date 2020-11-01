@@ -40,8 +40,11 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 
 #### Adding basic primitives
 
-Improving our scheme, a little bit, so that we can use it as a basic calculator.
-FIXED:- Support added for primitives to perform the various [type-testing](http://www.schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-9.html#%_sec_6.3), symbol, string, number ,etc.
+- Improving our scheme, a little bit, so that we can use it for basic calculations.
+- FIXED:- Support added for primitives to perform the various [type-testing](http://www.schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-9.html#%_sec_6.3), symbol, string, number ,etc.
+- Additional primitives - including compareBinop fixed. No errors
+
+- Conditional pattern matching.
 
 #### Test runs
 
@@ -50,6 +53,11 @@ FIXED:- Support added for primitives to perform the various [type-testing](http:
 - Primitives:- ./ghc eval.hs && eval "'atom"
 - Adding basic Primitives./ghc eval.hs && eval "(+ 2 (-4 1))"
 - Adding basic primitives./ghc eval.hs && eval "(- (+ 4 6 3) 3 5 2)"
+- ./ghc primitives.hs && primitives "(< 2 3)"
 - BUG FIX:- Error #f. Use Import Control.Monad.Except
+- pattern Matching 2:- BUG FIX:- #f by adding an if clause
+
+- ./ghc primitives.hs && primitives "(if (> 2 3) \"no\" \"yes\")"\
+
 
 #### Describe the test cases. Add more tests.
