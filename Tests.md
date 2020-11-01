@@ -58,6 +58,9 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 - pattern Matching 2:- BUG FIX:- #f by adding an if clause or use an error throw.
 
 - ./ghc primitives.hs && primitives "(if (> 2 3) \"no\" \"yes\")"\
+- repl all cleaned up and float support added.
+- repl:- ghc repl.hs
+- Tests:- (+ 2 3), ( * 2 3), (> 4 2)
 
 
 #### Describe the test cases. Add more tests.
