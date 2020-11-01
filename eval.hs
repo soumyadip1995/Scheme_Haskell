@@ -94,10 +94,9 @@ primitives = [("+", numericBinop (+)),
               ("string?" , unaryOp stringp) ,
               ("number?" , unaryOp numberp) ,
               ("bool?", unaryOp boolp) ,
-              ("list?" , unaryOp listp)]
+              ("list?" , unaryOp listp)
 
-
-
+              
 unaryOp :: (LispVal -> LispVal) -> [LispVal] -> LispVal
 unaryOp f [v] = f v
 
