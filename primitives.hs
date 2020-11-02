@@ -77,6 +77,11 @@ symbol = oneOf "!#$%&|*+-/:<=>?@^_~"
 spaces :: Parser ()
 spaces = skipMany1 space
 
+readExpr :: String -> LispVal
+readExpr input = case parse parseExpr "lisp" input of
+    Left err -> String $ "No match: " ++ show err
+    Right val -> val
+
 -- print out a string representation of the various possible LispVals:
 
 showVal :: LispVal -> String
@@ -164,10 +169,6 @@ eval (List [Atom "quote", val]) = val
 
 eval (List (Atom func : args)) = apply func $ map eval args 
 
-readExpr :: String -> LispVal
-readExpr input = case parse parseExpr "lisp" input of
-    Left err -> String $ "No match: " ++ show err
-    Right val -> val
 
 main :: IO ()
 main = getArgs >>= print . eval . readExpr . head
