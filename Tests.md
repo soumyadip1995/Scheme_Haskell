@@ -63,4 +63,4 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 - Tests:- (+ 2 3), ( * 2 3), (> 4 2)
 
 
-#### Describe the test cases. Add more tests.
+#### Write the tests for env andprimitive bindings

@@ -28,23 +28,25 @@ getVar envRef var = do
         readIORef
         (lookup var env)
 
-{-
-setVar :: Env -> String -> LispVal
-setVar envRef var value = do
-  env <- liftIO $ readIORef envRef
-  (liftIO . (flip writeIORef value)) (lookup var env)
-  return value
-defineVar :: Env -> String -> LispVal
-defineVar envRef var value = do
-  alreadyDefined <- liftIO $ isBound envRef var
-  if alreadyDefined
-    then setVar envRef var value >> return value
-    else liftIO $ do
-      valueRef <- newIORef value
-      env <- readIORef envRef
-      writeIORef envRef ((var, valueRef) : env)
-      return value
--}
+
+-- setVar :: Env -> String -> LispVal
+-- setVar envRef var value = do
+--   env <- liftIO $ readIORef envRef
+--   (liftIO . (flip writeIORef value)) (lookup var env)
+--   return value
+
+
+-- defineVar :: Env -> String -> LispVal
+-- defineVar envRef var value = do
+--   alreadyDefined <- liftIO $ isBound envRef var
+--   if alreadyDefined
+--     then setVar envRef var value >> return value
+--     else liftIO $ do
+--       valueRef <- newIORef value
+--       env <- readIORef envRef
+--       writeIORef envRef ((var, valueRef) : env)
+--       return value
+
 
 defineVar :: Env -> String -> LispVal -> IO LispVal
 defineVar envRef var value = do
