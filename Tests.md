@@ -66,8 +66,14 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 #### Tests for Env and Bindings
 
 Env- monads and IOref
-- > ghc eval.hs
-  > (define x 3)
-  > (+ x 2)
+- ./ghc eval.hs > (define x 3) > (+ x 2)
 
 Primitive Bindings
+- ./ghc bind.hs > (f 1 2 3)
+
+
+#### TO DO:
+
+- Change func from LispVal to string. for string matching
+- That means changing the eval atom. also unpacknum (String s) = s
+- Open questions:- Can more expressions be added to the body. (List). How to use Records ?. Are monads only used for finite states or can it provide support for non- determinism. If so, then how can those computations be performed. What cahnges do we need to make
