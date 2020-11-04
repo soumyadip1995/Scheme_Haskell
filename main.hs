@@ -3,6 +3,8 @@ import System.Environment
 import Control.Monad 
 import Numeric
 
+-- datatypes--
+
 data LispVal = Atom String
              | List [LispVal]
              | DottedList [LispVal] LispVal
@@ -10,6 +12,9 @@ data LispVal = Atom String
              | String String
              | Bool Bool
              | Float Double
+
+
+-- Parser--
 
 parseString :: Parser LispVal
 parseString = do
