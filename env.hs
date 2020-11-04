@@ -55,6 +55,8 @@ defineVar envRef var value = do
   writeIORef envRef ((var, valueRef) : env)
   return value
 
+-- datatypes 
+
 data LispVal = Atom String
              | List [LispVal]
              | DottedList [LispVal] LispVal
@@ -74,7 +76,7 @@ parseString = do
                 return $ String x
 
 
-
+-- matching--
 parseAtom :: Parser LispVal
 parseAtom = do
               first <- letter <|> symbol

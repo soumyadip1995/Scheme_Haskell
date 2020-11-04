@@ -63,4 +63,11 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 - Tests:- (+ 2 3), ( * 2 3), (> 4 2)
 
 
-#### Write the tests for env andprimitive bindings
+#### Tests for Env and Bindings
+
+Env- monads and IOref
+- > ghc eval.hs
+  > (define x 3)
+  > (+ x 2)
+
+Primitive Bindings
