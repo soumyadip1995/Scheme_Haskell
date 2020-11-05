@@ -15,7 +15,7 @@
 - Whitespace ./ghc main.hs && main " $"
 - Return Value ./ghc main.hs && main " \ "this is shreya \ "
 - Return Value ./ghc main.hs && main 25
-- float value = 23.3334
+- Flaoting point :- 0.811223
 
 #### Recursive parser test cases:-
 
@@ -62,7 +62,7 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 - Tests:- (+ 2 3), ( * 2 3), (> 4 2)
 
 
-#### Tests for Env and Bindings
+#### Tests for Env and Bindings - env.hs and bind.hs
 
 Env- monads and IOref
 - ./ghc eval.hs > (define x 3) > (+ x 2)
