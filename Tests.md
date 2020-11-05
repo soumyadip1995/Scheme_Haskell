@@ -43,7 +43,6 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 - Improving our scheme, a little bit, so that we can use it for basic calculations.
 - FIXED:- Support added for primitives to perform the various [type-testing](http://www.schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-9.html#%_sec_6.3), symbol, string, number ,etc.
 - Additional primitives - including compareBinop fixed. No errors
-
 - Conditional pattern matching.
 
 #### Test runs
@@ -54,9 +53,8 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 - Adding basic Primitives./ghc eval.hs && eval "(+ 2 (-4 1))"
 - Adding basic primitives./ghc eval.hs && eval "(- (+ 4 6 3) 3 5 2)"
 - ./ghc primitives.hs && primitives "(< 2 3)"
-- BUG FIX:- Error #f. Use Import Control.Monad.Except
+- BUG FIX:- Lispval returns #f. Use Import Control.Monad.Except. This is the way I suppose. Treat it as a garbage value.
 - pattern Matching 2:- BUG FIX:- #f by adding an if clause or use an error throw.
-
 - ./ghc primitives.hs && primitives "(if (> 2 3) \"no\" \"yes\")"\
 - repl all cleaned up and float support added.
 - repl:- ghc repl.hs
@@ -76,4 +74,4 @@ Primitive Bindings
 
 - Change func from LispVal to string. for string matching
 - That means changing the eval atom. also unpacknum (String s) = s
-- Open questions:- Can more expressions be added to the body. (List). How to use Records ?. Are monads only used for finite states or can it provide support for non- determinism. If so, then how can those computations be performed. What cahnges do we need to make
+- Open questions:- Can more expressions be added to the body. (List). How to use Records ?. Are monads only used for finite states or can it provide support for non- determinism. If so, then how can those computations be performed. What changes do we need to make
