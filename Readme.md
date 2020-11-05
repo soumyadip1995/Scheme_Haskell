@@ -1,6 +1,6 @@
 ### Scheme in Haskell
 
-Follows the [Write Yourself a Haskell Scheme in 48 hours](https://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours) tutorial.
+Following the [Write Yourself a Haskell Scheme in 48 hours](https://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours) tutorial.
 
 #### Why Haskell 
 
@@ -8,7 +8,7 @@ Languages such as C/C++ are imperative in the sense, they provide a sequence of 
 
 #### Downloading Haskell
 
-Install haskell and check if `ghci` is working or not in the command prompt. You might have to add the path. [Learn You a Haskell](http://learnyouahaskell.com/chapters) is a great book to start.
+Install haskell and check if `ghci` is working or not in the command prompt. You might have to add the path. [Learn You a Haskell](http://learnyouahaskell.com/chapters) is a great reference.
 
 [Download haskell](https://www.haskell.org/platform/windows.html). Follow the steps:-
 
