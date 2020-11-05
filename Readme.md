@@ -14,7 +14,7 @@ Install haskell and check if `ghci` is working or not in the command prompt. You
 
 Step 1:- [Configure chocolatey](https://chocolatey.org/install) on your machine.
 
-Step 2:- open up powershell on your machine, Run -  Get-ExecutionPolicy, to check whether or not it is restricted.
+Step 2:- open up powershell on your machine, Run - `Get-ExecutionPolicy`, to check whether or not it is restricted.
 
 Step 3:- Run the command from the Configure Chocolatey link provided above.
 
