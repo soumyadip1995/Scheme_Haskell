@@ -1,4 +1,5 @@
-### Parsing
+### Parsing- main.hs
+
 #### FIXED :heavy_check_mark:
 - Whitespace support
 - ParseNumber without LiftM
@@ -32,20 +33,20 @@ Te 2:- Change parseNumber to support the [Scheme standard for different bases](h
 Te 3:- Add a Float constructor to LispVal.Use readFloat
 
 
-### Evaluator
+### Evaluator - eval.hs
 
 #### Primitives
 
 In Lisp, the data types for both code and data are the same, so our evaluator will return a LispVal. Evaluating numbers, strings, booleans and quoted lists.
 
-#### Adding basic primitives
+#### Adding basic primitives - primitives.hs
 
 - Improving our scheme, a little bit, so that we can use it for basic calculations.
 - FIXED:- Support added for primitives to perform the various [type-testing](http://www.schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-9.html#%_sec_6.3), symbol, string, number ,etc.
 - Additional primitives - including compareBinop fixed. No errors
 - Conditional pattern matching.
 
-#### Test runs
+#### Test runs for eval.hs, primitives.hs and repl.hs
 
 - Initial Evaluator - ./ghc eval.hs && eval "(1 2 2)"
 - ./ghc eval.hs && eval "'(1 3 (\ "this \ "  \ " one \ "))"
@@ -55,7 +56,7 @@ In Lisp, the data types for both code and data are the same, so our evaluator wi
 - ./ghc primitives.hs && primitives "(< 2 3)"
 - BUG FIX:- Lispval returns #f. Use Import Control.Monad.Except. This is the way I suppose. Treat it as a garbage value.
 - pattern Matching 2:- BUG FIX:- #f by adding an if clause or use an error throw.
-- ./ghc primitives.hs && primitives "(if (> 2 3) \"no\" \"yes\")"\
+- ./ghc primitives.hs && primitives "(if (> 2 3) \"no\" \"yes\")"
 - repl all cleaned up and float support added.
 - repl:- ghc repl.hs
 - Tests:- (+ 2 3), ( * 2 3), (> 4 2)
